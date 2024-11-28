@@ -1,0 +1,20 @@
+section {
+    padding: 14px;
+    border: solid 0.5px var(--mat-sys-inverse-primary);
+    border-radius: 10px;
+    background: var(--mat-sys-outline-variant);
+    margin: 16px 4px;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 11px;
+    }
+}

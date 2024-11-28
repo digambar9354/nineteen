@@ -1,0 +1,16 @@
+
+@if (isTask()) {
+<app-new-task (closeDiloag)="closeDiloag()" />
+}
+<section>
+    <header>
+        <h2>{{userDetails().login + "'s Tasks"}}</h2>
+        <menu>
+            <button (click)="initiateTaks()">Add Task</button>
+        </menu>
+    </header>
+
+    @if (userDetails()) {
+    <app-task [userDetails]="userDetails()" />
+    }
+</section>

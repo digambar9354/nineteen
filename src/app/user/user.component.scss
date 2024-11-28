@@ -1,0 +1,27 @@
+.user-block {
+    padding: 5px;
+
+    button {
+        text-transform: capitalize;
+        vertical-align: middle;
+        display: flex;
+        width: 100%;
+
+        &.active {
+            color: var(--mat-sys-on-primary);
+            background-color: var(--mat-sys-on-primary-fixed-variant);
+        }
+
+        img {
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            margin: 5px;
+        }
+
+        span {
+            display: flex;
+            align-self: center;
+        }
+    }
+}

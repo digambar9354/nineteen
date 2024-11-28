@@ -1,0 +1,9 @@
+<div class="user-block">
+    
+    <button [class.active]="selectedUserId() == user()!.id" (click)="emitOnclick()">
+        <img [src]="url()" [alt]="userName()">
+        <span>
+            {{userName()}}
+        </span>
+    </button>
+</div>
