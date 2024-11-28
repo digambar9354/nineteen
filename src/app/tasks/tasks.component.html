@@ -1,6 +1,6 @@
 
 @if (isTask()) {
-<app-new-task (closeDiloag)="closeDiloag()" />
+<app-new-task [task]="task()" (closeDiloag)="closeDiloag()" (updateTasks)="updateTasks($event)" [userid]="userDetails().id"/>
 }
 <section>
     <header>
@@ -11,6 +11,6 @@
     </header>
 
     @if (userDetails()) {
-    <app-task [userDetails]="userDetails()" />
+    <app-task [task]="task()" [userDetails]="userDetails()" (updateTasks)="updateTasks($event)"/>
     }
 </section>

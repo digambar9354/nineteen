@@ -1,11 +1,11 @@
 @for(event of event(); track $index; let i = $index;) {
-@if (event.payload.action == 'created') {
+@if (userDetails().id == event.userId) {
 <section>
-    <header>Task {{i}}</header>
+    <header>{{event.title}}</header>
     <p class="details">
-        {{event.payload.comment?.body}}
+        {{event.summary}}
     </p>
-    <p class="date">{{event.created_at | date : 'dd-mm-yyyy,hh:mm'}}</p>
+    <p class="date">{{event.dueDate| date : 'dd-mm-yyyy,hh:mm'}}</p>
     <button (click)="completeTask(event.id)">Complete Task</button>
 </section>
 }

@@ -1,8 +1,7 @@
-import { Component, input, signal } from "@angular/core"
+import { Component, input, output, signal } from "@angular/core"
 import { DatePipe } from '@angular/common';
 
 import { UserInterface } from '../../user/user.model';
-import { ApiService } from '../../../shared/service/api.service';
 import { TaskInterface } from './task.model';
 
 @Component({
@@ -13,28 +12,28 @@ import { TaskInterface } from './task.model';
 })
 export class TaskComponent {
     userDetails = input.required<UserInterface>();
+    task = input.required<Array<TaskInterface>>();
+    updateTasks = output<Array<TaskInterface>>();
 
-    event = signal<Array<TaskInterface>>([])
+    event = signal<Array<TaskInterface>>([]);
 
-    constructor(
-        private apiService: ApiService) {
-
+    constructor() {
     }
 
     ngOnChanges() {
         this.getEvents();
     }
-
+                      
     getEvents() {
-        this.apiService.getUserEvents(this.userDetails().url).subscribe((event: any) => {
-            this.event.set(event);
-        })
+        this.event.set(this.task());
+        console.log(this.task())
     }
 
-    completeTask(id: string) {
+    completeTask(id: string | number) {
         this.event.update(value => {
             console.log(value)
-            return value.filter(e => e.id != id);
+            return value.filter((e: TaskInterface)=> e.id != id);
         })
+        this.updateTasks.emit(this.task());
     }
 }
