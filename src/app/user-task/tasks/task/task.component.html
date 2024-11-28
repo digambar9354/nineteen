@@ -5,7 +5,7 @@
     <p class="details">
         {{event.summary}}
     </p>
-    <p class="date">{{event.dueDate| date : 'dd-mm-yyyy,hh:mm'}}</p>
+    <p class="date">{{event.dueDate| date : 'short'}}</p>
     <button (click)="completeTask(event.id)">Complete Task</button>
 </section>
 }

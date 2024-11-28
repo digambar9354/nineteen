@@ -3,7 +3,7 @@ import { Component, input, signal } from "@angular/core";
 import { TaskComponent } from './task/task.component';
 import { UserInterface } from '../user/user.model';
 import { NewTaskComponent } from './new-task/new-task.component';
-import { CacheService } from '../../shared/service/cache.service';
+import { CacheService } from '../../../shared/service/cache.service';
 import { TaskInterface } from './task/task.model';
 
 @Component({

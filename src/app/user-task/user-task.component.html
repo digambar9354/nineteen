@@ -1,0 +1,22 @@
+<app-header />
+<main>
+    @defer (when users().length) {
+    <ul>
+        @for(user of users(); track user.id; let i = $index; ) {
+        <li>
+            <app-user [user]="user" (emitDetails)="captureUser($event)" [selectedUserId]="userDetails()?.id" />
+        </li>
+        }
+    </ul>
+    }
+    <div class="details">
+        @if (userDetails()?.login) {
+        <app-tasks [userDetails]="userDetails()" />
+        } @else {
+        <div>
+            Select user see there task
+        </div>
+        }
+    </div>
+</main>
+<app-footer />
