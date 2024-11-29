@@ -1,0 +1,11 @@
+{
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "externalTemplate": true,
+            "inlineStyle": false
+        },
+        "angular-component": {
+            "skipPathSubfolder": false
+        }
+    }
+}

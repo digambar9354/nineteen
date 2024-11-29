@@ -1,44 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TrafficComponent } from './traffic/traffic.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { ServerStatusComponent } from './server-status/server-status.component';
+import { ItemComponent } from './item/item.component';
 
 @Component({
     selector: 'app-dashboard',
-    standalone: false,
-    templateUrl: "./dashboard.component.html",
-    styleUrl: './dashboard.component.scss',
-    //   changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [TrafficComponent, TicketsComponent, ServerStatusComponent],
+    templateUrl: "./dashboard.component.html"
 })
 export class DashboardComponent {
 
-    dummyTrafficData = [
-        {
-            id: 'd1',
-            value: 433,
-        },
-        {
-            id: 'd2',
-            value: 260,
-        },
-        {
-            id: 'd3',
-            value: 290,
-        },
-        {
-            id: 'd4',
-            value: 410,
-        },
-        {
-            id: 'd5',
-            value: 397,
-        },
-        {
-            id: 'd6',
-            value: 488,
-        },
-        {
-            id: 'd47',
-            value: 589,
-        },
-    ];
-    maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
-    currentStatus = 'online';
 }
