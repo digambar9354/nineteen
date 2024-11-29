@@ -14,7 +14,7 @@ import { UserInterface } from './user/user.model';
     styleUrl: "./user-task.component.scss",
     imports: [HeaderComponent, FooterComponent, UserComponent, TasksComponent],
 })
-export class UserTaskComponent{
+export class UserTaskComponent {
     users = signal<Array<UserInterface>>([]);
     loadingUser = signal<boolean>(false);
 
