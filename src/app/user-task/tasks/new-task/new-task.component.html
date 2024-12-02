@@ -2,20 +2,17 @@
 <dialog open>
     <h2>Add Task</h2>
     <form method="dialog" (ngSubmit)="saveTask()">
-        <p>
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" [(ngModel)]="title" />
-        </p>
+        <p6-control [for]="'title'" [label]="'title'">
+            <input type="text" id="title" name="title" />
+        </p6-control>
 
-        <p>
-            <label for="summary">Summary</label>
-            <textarea id="summary" rows="5" name="summary" [(ngModel)]="summary"></textarea>
-        </p>
+        <p6-control [for]="'summary'" [label]="'summary'">
+            <textarea rows="5" id="summary" name="summary"></textarea>
+        </p6-control>
 
-        <p>
-            <label for="due-date">Due Date</label>
-            <input type="date" id="due-date" name="due-date" [(ngModel)]="dueDate" />
-        </p>
+        <p6-control [for]="'due-date'" [label]="'due-date'">
+            <input type="date" id="due-date" name="due-date" />
+        </p6-control>
 
         <p class="actions">
             <button (click)="closeDiloagEv()" type="button">Cancel</button>

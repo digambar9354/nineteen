@@ -1,13 +1,15 @@
 import { Component, input, output, signal, InputSignal } from "@angular/core";
 
 import { FormsModule } from "@angular/forms"
+import { SharedModule } from "../../../../shared/shared.module";
+
 import { TaskInterface } from '../task/task.model';
 
 @Component({
     selector: "app-new-task",
     styleUrl: "./new-task.component.scss",
     templateUrl: "./new-task.component.html",
-    imports: [FormsModule]
+    imports: [SharedModule, FormsModule],
 })
 export class NewTaskComponent {
 
@@ -36,7 +38,7 @@ export class NewTaskComponent {
     }
 
     saveTask() {
-        
+
         let data: TaskInterface = {
             id: (this.event()?.length ?? 0) + 1,
             userId: this.userid(),
