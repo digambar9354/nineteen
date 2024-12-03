@@ -5,7 +5,7 @@ import { NewTaskComponent } from "../../../user-task/tasks/new-task/new-task.com
 
 @Component({
     selector: 'app-tickets',
-    imports: [ItemComponent, NewTicketComponent, NewTaskComponent],
+    imports: [ItemComponent, NewTicketComponent],
     templateUrl: './tickets.component.html'
 })
 export class TicketsComponent {
