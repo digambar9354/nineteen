@@ -12,4 +12,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
     title = 'nineteen';
+
+    get debugOutput() {
+        console.log('[AppComponent] "debugOutput" binding re-evaluated.');
+        return 'AppComponent Component Debug Output';
+    }
 }

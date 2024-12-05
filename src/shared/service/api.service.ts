@@ -11,6 +11,18 @@ export class ApiService {
 
     }
 
+    get(url: string, params: {}) {
+        return this.http.get(url, { params });
+    }
+
+    post(url: string, body: {}) {
+        return this.http.post(url, body);
+    }
+
+    put(url: string, body: {}) {
+        return this.http.put(url, body)
+    }
+
     getUserList() {
         return this.http.get('https://api.github.com/users', { params: { 'per_page': 5, 'page': 1, 'q': 'pixel6' } })
     }

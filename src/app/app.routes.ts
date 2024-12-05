@@ -4,10 +4,18 @@ import { FinanceComponent } from './finance/finance.component';
 import { RouteNotFoundComponent } from './404/404.component';
 
 import { TasksComponent } from './tasks/tasks.component';
+import { ChangeDetectComponent } from './change-detect/detect-change.component';
+import { PlacePickerComponent } from './place-picker/place-picker.component';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'tasks', pathMatch: 'full'
+        path: '', redirectTo: 'place-picker', pathMatch: 'full'
+    },
+    {
+        path: 'place-picker', component: PlacePickerComponent
+    },
+    {
+        path: 'cd-change', component: ChangeDetectComponent
     },
     {
         path: 'tasks', component: TasksComponent
