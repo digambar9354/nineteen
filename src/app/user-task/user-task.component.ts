@@ -27,12 +27,12 @@ export class UserTaskComponent {
     }
 
     getUsers() {
-        this.apiService.getUserList().subscribe((value: any) => {
-            this.users.set(value);
-        });
-        effect(() => {
-            console.log(`The current count is: ${this.users()}`);
-        });
+        // this.apiService.getUserList().subscribe((value: any) => {
+        //     this.users.set(value);
+        // });
+        // effect(() => {
+        //     console.log(`The current count is: ${this.users()}`);
+        // });
     }
 
     captureUser(userDetails: UserInterface) {

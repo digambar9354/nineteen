@@ -1,2 +1,6 @@
+@if(error()) {
+<app-error-modal [title]="'title'" [message]='error()' />
+}
+
 <router-outlet></router-outlet>
 <p class="debug-output">{{ debugOutput }}</p>

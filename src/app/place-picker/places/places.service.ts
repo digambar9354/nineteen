@@ -1,20 +1,46 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 
 import { Place } from './place.model';
+import { ApiService } from '../../../shared/service/api.service';
+import { map, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class PlacesService {
-  private userPlaces = signal<Place[]>([]);
+    private userPlaces = signal<Place[]>([]);
+    private apiService = inject(ApiService)
 
-  loadedUserPlaces = this.userPlaces.asReadonly();
+    loadedUserPlaces = this.userPlaces.asReadonly();
 
-  loadAvailablePlaces() {}
+    loadAvailablePlaces() {
+        return this.apiService.get('places', {}).pipe(
+            map((data: any) => data['places'])
+        );
+    }
 
-  loadUserPlaces() {}
+    loadUserPlaces() {
+        return this.apiService.get('user-places', {}).pipe(
+            map((data: any) => data['places']),
+            tap((data) => this.userPlaces.set(data))
+        );
+    }
 
-  addPlaceToUserPlaces(place: Place) {}
+    addPlaceToUserPlaces(data: {}) {
+        return this.apiService.put('user-places', data).pipe(
+            map((data: any) => data['userPlaces']),
+            tap((data) => this.userPlaces.set(data))
+        );
+    }
 
-  removeUserPlace(place: Place) {}
+
+    removeUserPlace(place: Place) {
+        console.log('removeUserPlace');
+        
+        return this.apiService.delete('user-places', { id: place.id }).pipe(
+            map((data: any) => data['userPlaces']),
+            tap((data) => this.userPlaces.set(data))
+        );
+    }
+
 }
