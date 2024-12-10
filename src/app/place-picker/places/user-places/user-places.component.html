@@ -1,9 +1,13 @@
 <app-places-container title="Available Places">
     @defer (when !isLoading()) {
+    @if (!error()) {
     @if (places()) {
-    <app-places [places]="places()!" (selectPlace)="onDeletePlace($event)" />
+    <app-places [places]="places()!"/>
     } @else if (places()?.length === 0) {
     <p class="fallback-text">Unfortunately, no places could be found.</p>
+    }
+    } @else {
+    <p class="fallback-text">{{error()}}</p>
     }
     } @placeholder {
     <p class="fallback-text">Loading places .....</p>

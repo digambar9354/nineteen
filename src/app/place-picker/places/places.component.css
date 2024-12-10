@@ -1,9 +1,9 @@
 ul {
     max-width: 80rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    grid-gap: 2rem;
-    margin: 2rem auto;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-gap: 1em;
+    margin: 1rem auto;
     padding: 0;
     list-style: none;
 }
@@ -49,7 +49,7 @@ ul {
 .place-item h3 {
     font-family: "Raleway", sans-serif;
     font-weight: normal;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     position: absolute;
     bottom: 0;
     right: 1rem;
